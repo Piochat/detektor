@@ -34,4 +34,9 @@ public class AssociationVehicleOwnerService implements AssociationVehicleOwnerSe
     public List<AssociationOwnerVehicle> getVehicle(long vehicleId) {
         return associationVehicleOwnerDao.getVehicle(vehicleId);
     }
+
+    @Override
+    public void delete(long associationId) {
+        associationVehicleOwnerDao.delete(associationId);
+    }
 }

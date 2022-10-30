@@ -14,4 +14,6 @@ public interface AssociationVehicleOwnerDaoInte {
     public List<AssociationOwnerVehicle> getVehicle(long vehicleId);
 
     public List<AssociationOwnerVehicle> getOwner(long ownerId);
+
+    public void delete(long associationId);
 }

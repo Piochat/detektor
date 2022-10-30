@@ -13,4 +13,6 @@ public interface AssociationVehicleOwnerServiceInte {
     List<AssociationOwnerVehicle> getOwner(long ownerId);
 
     List<AssociationOwnerVehicle> getVehicle(long vehicleId);
+
+    void delete(long associationId);
 }

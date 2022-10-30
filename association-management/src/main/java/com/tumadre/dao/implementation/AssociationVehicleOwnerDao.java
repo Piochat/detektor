@@ -34,4 +34,9 @@ public class AssociationVehicleOwnerDao implements AssociationVehicleOwnerDaoInt
     public List<AssociationOwnerVehicle> getOwner(long ownerId) {
         return repository.findByOwnerId(ownerId);
     }
+
+    @Override
+    public void delete(long associationId) {
+        repository.deleteById(associationId);
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -48,5 +49,15 @@ public class AssociationVehicleOwnerController {
             return ResponseEntity.ok(o);
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(o);
+    }
+
+    @DeleteMapping("/{ownerId}/and/{vehicleId}")
+    public ResponseEntity<AssociationOwnerVehicle> delete(@PathVariable long ownerId, @PathVariable long vehicleId) {
+        var o = service.get(vehicleId, ownerId);
+        if (o == null)
+            return ResponseEntity.badRequest().build();
+
+        service.delete(o.getAssociationId());
+        return ResponseEntity.ok(o);
     }
 }
